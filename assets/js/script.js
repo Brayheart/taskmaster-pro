@@ -87,25 +87,25 @@ $(".list-group").on("blur", "textarea", function() {
     $(this).replaceWith(taskP);
 });
 
-// due date was clicked
-$(".list-group").on("click", "span", function() {
-  // get current text
-  var date = $(this)
-    .text()
-    .trim();
+// // due date was clicked
+// $(".list-group").on("click", "span", function() {
+//   // get current text
+//   var date = $(this)
+//     .text()
+//     .trim();
 
-  // create new input element
-  var dateInput = $("<input>")
-    .attr("type", "text")
-    .addClass("form-control")
-    .val(date);
+//   // create new input element
+//   var dateInput = $("<input>")
+//     .attr("type", "text")
+//     .addClass("form-control")
+//     .val(date);
 
-  // swap out elements
-  $(this).replaceWith(dateInput);
+//   // swap out elements
+//   $(this).replaceWith(dateInput);
 
-  // automatically focus on new element
-  dateInput.trigger("focus");
-});
+//   // automatically focus on new element
+//   dateInput.trigger("focus");
+// });
 
 // value of due date was changed
 $(".list-group").on("blur", "input[type='text']", function() {
@@ -249,6 +249,12 @@ $("#trash").droppable({
     console.log("out");
   }
 });
+
+$("#modalDueDate").datepicker({
+  minDate : 1
+});
+
+
 
 // load tasks for the first time
 loadTasks();
