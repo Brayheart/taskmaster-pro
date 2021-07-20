@@ -87,25 +87,23 @@ $(".list-group").on("blur", "textarea", function() {
     $(this).replaceWith(taskP);
 });
 
-// // due date was clicked
-// $(".list-group").on("click", "span", function() {
-//   // get current text
-//   var date = $(this)
-//     .text()
-//     .trim();
+$(".list-group").on("click", "span", function() {
+  // get current text
+  var date = $(this).text().trim();
 
-//   // create new input element
-//   var dateInput = $("<input>")
-//     .attr("type", "text")
-//     .addClass("form-control")
-//     .val(date);
+  // create new input element
+  var dateInput = $("<input>").attr("type", "text").addClass("form-control").val(date);
 
-//   // swap out elements
-//   $(this).replaceWith(dateInput);
+  $(this).replaceWith(dateInput);
 
-//   // automatically focus on new element
-//   dateInput.trigger("focus");
-// });
+  // enable jquery ui datepicker
+  dateInput.datepicker({
+    minDate: 1
+  });
+
+  // automatically bring up the calendar
+  dateInput.trigger("focus");
+});
 
 // value of due date was changed
 $(".list-group").on("blur", "input[type='text']", function() {
